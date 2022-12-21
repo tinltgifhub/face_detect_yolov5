@@ -156,8 +156,9 @@ def run(
 
                 # Print results
                 for c in det[:, 5].unique():
+                    print('\n')
                     n = (det[:, 5] == c).sum()  # detections per class
-                    s = f"{n} face {'s' * (n > 1)}, "  # add to string
+                    s = f"Number of faces count: {n} face{'s' * (n > 1)}, "  # add to string
 
                 # Write results
                 for *xyxy, conf, cls in reversed(det):
@@ -214,7 +215,7 @@ def run(
         LOGGER.info(f"Results saved to {colorstr('bold', save_dir)}{s}")
     if update:
         strip_optimizer(weights[0])  # update model (to fix SourceChangeWarning)
-    arr = os.listdir(save_path+'/')
+    arr = os.listdir(save_path)
     for img in arr:
         image=plt.imread(save_path+img)
         plt.imshow(image)
