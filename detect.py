@@ -216,11 +216,9 @@ def run(
         LOGGER.info(f"Results saved to {colorstr('bold', save_dir)}{s}")
     if update:
         strip_optimizer(weights[0])  # update model (to fix SourceChangeWarning)
-    arr = os.listdir(save_dir)
-    for img in arr:
-        image=plt.imread(save_dir+"/"+img)
-        plt.figure(figsize = (500,500))
-        plt.imshow(image)
+    image=plt.imread(save_path)
+    plt.figure(figsize = (500,500))
+    plt.imshow(image)
 
 def parse_opt():
     parser = argparse.ArgumentParser()
