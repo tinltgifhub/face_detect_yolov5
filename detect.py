@@ -219,6 +219,7 @@ def run(
     arr = os.listdir(save_dir)
     for img in arr:
         image=plt.imread(save_dir+"/"+img)
+        plt.figure(figsize = (500,500))
         plt.imshow(image)
 
 def parse_opt():
